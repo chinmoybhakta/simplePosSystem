@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.shopmanagement007.purchaseController">
+   <children>
+      <VBox layoutX="2.0" prefHeight="800.0" prefWidth="1300.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="116.0" prefWidth="554.0" text="Purchase Entry">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font></Label>
+                  <Label prefHeight="109.0" prefWidth="413.0" text="User: 1000" />
+                  <Label prefHeight="111.0" prefWidth="335.0" text="Version: 1.0.0" />
+               </children></HBox>
+            <HBox prefHeight="108.0" prefWidth="1300.0">
+               <children>
+                  <VBox prefHeight="104.0" prefWidth="321.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="53.0" prefWidth="330.0" text="Item Code/ Barcode" />
+                        <TextField fx:id="itemCode" onKeyPressed="#enterPressed" prefHeight="43.0" prefWidth="321.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="104.0" prefWidth="280.0" />
+                  <VBox prefHeight="104.0" prefWidth="351.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#switchToAdd" prefHeight="37.0" prefWidth="215.0" text="Add New Item" textFill="#eb0a0a" />
+                        <Button mnemonicParsing="false" onAction="#switchToSale" prefHeight="41.0" prefWidth="215.0" text="Sale Entry" textFill="#730cf7" />
+                     </children></VBox>
+                  <VBox prefHeight="108.0" prefWidth="330.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="54.0" prefWidth="349.0" text="Seller Name" />
+                        <TextField fx:id="sellerName" prefHeight="31.0" prefWidth="308.0" />
+                        <Label alignment="CENTER" prefHeight="59.0" prefWidth="351.0" text="Seller Mobile" />
+                        <TextField fx:id="sellerMobile" prefHeight="6.0" prefWidth="330.0" />
+                     </children>
+                  </VBox>
+               </children></HBox>
+            <HBox prefHeight="672.0" prefWidth="1300.0">
+               <children>
+                  <VBox prefHeight="634.0" prefWidth="955.0">
+                     <children>
+                        <TableView fx:id="purchaseDetails" prefHeight="634.0" prefWidth="873.0">
+                          <columns>
+                            <TableColumn fx:id="no" prefWidth="75.0" text="No" />
+                            <TableColumn fx:id="code" prefWidth="249.0" text="Code" />
+                              <TableColumn fx:id="description" prefWidth="329.0" text="Description" />
+                              <TableColumn fx:id="price" prefWidth="161.0" text="Unit Price" />
+                              <TableColumn fx:id="quantity" onEditCommit="#editableQuantity" prefWidth="139.0" text="Quantity" />
+                          </columns>
+                        </TableView>
+                     </children></VBox>
+                  <VBox prefHeight="634.0" prefWidth="342.0">
+                     <children>
+                        <HBox prefHeight="63.0" prefWidth="342.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="64.0" prefWidth="114.0" text="MRP Total    :" />
+                              <Label fx:id="mrp" alignment="CENTER" prefHeight="63.0" prefWidth="231.0" text="000" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="63.0" prefWidth="342.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="64.0" prefWidth="114.0" text="(+)SD             :" />
+                              <TextField fx:id="sd" alignment="CENTER" prefHeight="63.0" prefWidth="235.0" text="0.00" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="73.0" prefHeight="63.0" prefWidth="342.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="64.0" prefWidth="114.0" text="(+)VAT/TAX  :" />
+                              <Label fx:id="vat" alignment="CENTER" prefHeight="63.0" prefWidth="234.0" text="000" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="136.0" prefHeight="63.0" prefWidth="342.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="64.0" prefWidth="114.0" text="(-)Discount   :" />
+                              <TextField fx:id="less" alignment="CENTER" prefHeight="68.0" prefWidth="229.0" text="0.00" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="199.0" prefHeight="63.0" prefWidth="342.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="64.0" prefWidth="114.0" text="TOTAL        :" />
+                              <Label fx:id="total" alignment="CENTER" prefHeight="63.0" prefWidth="234.0" text="000" />
+                           </children></HBox>
+                        <HBox prefHeight="63.0" prefWidth="342.0" />
+                        <HBox prefHeight="146.0" prefWidth="342.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="38.0" prefWidth="98.0" text="Cash         :" />
+                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="98.0" text="Change    :" />
+                                    <Label alignment="CENTER" prefHeight="51.0" prefWidth="98.0" text="Due          :" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="146.0" prefWidth="246.0">
+                                 <children>
+                                    <TextField fx:id="cash" alignment="CENTER" prefHeight="38.0" prefWidth="244.0" text="0.00" />
+                                    <Label fx:id="change" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="244.0" text="000" />
+                                    <Label fx:id="due" alignment="CENTER" prefHeight="57.0" prefWidth="246.0" text="0.00" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="105.0" prefWidth="342.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                              <VBox layoutX="10.0" layoutY="10.0" prefHeight="91.0" prefWidth="133.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#print" prefHeight="55.0" prefWidth="133.0" text="Print" />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="110.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox prefHeight="71.0" prefWidth="100.0" />
+                                    <Button mnemonicParsing="false" onAction="#logout_Button" prefHeight="14.0" prefWidth="78.0" text="Log out" textFill="#2a09ff" />
+                                 </children></VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children></HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
